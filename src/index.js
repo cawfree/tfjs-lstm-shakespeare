@@ -5,7 +5,7 @@ import axios from "axios";
 import * as tf from "@tensorflow/tfjs";
 
 // XXX: Define the url to pull text from. Here, we're using the tensorflowjs/tfjs Shakespeare
-//      text corpus (giant blob). What's special about this data source is it shows that a 
+//      text corpus (giant blob). What's special about this data source is it shows that a
 //      neural network can be trained to learn and emulate a specific style of writing. This
 //      was first popularised by the now famous article "The Unreasonable Effectiveness of
 //      Neural Networks" by Andrej Kaparthy:
@@ -16,7 +16,7 @@ const url =
 // XXX: Creates a Long-Short-Term-Memory (LSTM) model. These are specific kinds of Recurrent
 //      Neural Networks (RNNs) which have optimized neuron coefficients to improve the robustness
 //      of backpropagation (training). RNNs are effectively chains of layers which process
-//      individual time steps in a sequence of processing, and exploit the internal state 
+//      individual time steps in a sequence of processing, and exploit the internal state
 //      (memory) of each layer to achieve complex operations.
 const createModel = (lstmLayerSize, sampleLen, charSetSize, learningRate) => {
   // XXX: Create our processing model. We iterate through the array of lstmLayerSize and
@@ -75,8 +75,8 @@ const createModel = (lstmLayerSize, sampleLen, charSetSize, learningRate) => {
 //      input which create the "size" of data we're interested in and use these
 //      to index from the vectorized character set. These indices need to be
 //      shuffled to prevent the RNN from accidentally learning the sequence
-//      these segments usually arrive in. Finally, the mapped data elements 
-//      are packaged into tensors which can be used to drive the inputs and 
+//      these segments usually arrive in. Finally, the mapped data elements
+//      are packaged into tensors which can be used to drive the inputs and
 //      outputs of the neural network.
 const nextDataEpoch = (
   textLength,
@@ -135,7 +135,6 @@ const generate = (
   //      which permits it to continue generating far past our initial seed
   //      has been provided.
   while (generated.length < displayLength) {
-
     const inputBuffer = new tf.TensorBuffer([1, sampleLen, charSetSize]);
 
     [...Array(sampleLen)].map((_, i) =>
@@ -181,7 +180,6 @@ const generate = (
 };
 
 (async () => {
-
   // XXX: .
   const sampleLen = 60; // length of a sequence of characters we'll pass into the RNN
   const sampleStep = 3; // number of characters to jump between segments of input text
