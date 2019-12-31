@@ -1,0 +1,28 @@
+{
+  "scripts": {
+    "start": "babel src --out-dir dist && node dist"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "./node_modules/.bin/prettier src/index.js --write"
+    }
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "@tensorflow/tfjs": "^1.5.1",
+    "@tensorflow/tfjs-node": "^1.5.1",
+    "axios": "^0.19.0",
+    "chalk": "^3.0.0",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs-node-gpu": "^1.5.1",
+    "argparse": "^1.0.10"
+  }
+}
